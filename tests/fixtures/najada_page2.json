@@ -1,0 +1,41 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": "https://wizardshop.cz/api/v1/najada2/catalog/mtg-singles/?limit=100&offset=0&q=Lightning",
+  "results": [
+    {
+      "name": "Page Two A",
+      "expansion": {
+        "localized_name": "Set",
+        "short_code": "SET"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 2.0,
+          "regular_price_czk": 2.0,
+          "total_availability": 1,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Page Two B",
+      "expansion": {
+        "localized_name": "Set",
+        "short_code": "SET"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 3.0,
+          "regular_price_czk": 3.0,
+          "total_availability": 1,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    }
+  ]
+}

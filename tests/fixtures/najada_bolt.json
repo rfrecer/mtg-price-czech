@@ -1,0 +1,75 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "name": "Lightning Bolt",
+      "localized_name": "Lightning Bolt",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Commander: Foundations",
+        "name": null,
+        "short_code": null
+      },
+      "articles": [
+        {
+          "effective_price_czk": 49.0,
+          "regular_price_czk": 49.0,
+          "total_availability": 16,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Emeritus of Conflict // Lightning Bolt",
+      "localized_name": "Emeritus of Conflict // Lightning Bolt",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Secrets of Strixhaven",
+        "name": null,
+        "short_code": "SOS"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 35.0,
+          "regular_price_czk": 35.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": false
+          }
+        },
+        {
+          "effective_price_czk": 59.0,
+          "regular_price_czk": 59.0,
+          "total_availability": 1,
+          "additional_properties": {
+            "is_foil": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lightning Bolt",
+      "localized_name": "Lightning Bolt",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Commander: Marvel Super Heroes: Extras",
+        "name": null,
+        "short_code": "MSC"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 49.0,
+          "regular_price_czk": 49.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    }
+  ]
+}

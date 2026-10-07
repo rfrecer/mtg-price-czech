@@ -1,0 +1,75 @@
+{
+  "list": [
+    {
+      "name": "Urza's Rage",
+      "cardEditionName": "Mystical Archive",
+      "scryfallUri": "https://scryfall.com/card/sta/47/urzas-rage?utm_source=api",
+      "foil": true,
+      "etched": true,
+      "borderColor": "BORDERLESS",
+      "internalCards": [
+        {
+          "priceSell": 7.0,
+          "availEshopQty": 4,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Urza's Incubator",
+      "cardEditionName": "Dominaria Remastered Ext.",
+      "scryfallUri": "https://scryfall.com/card/dmr/453/urzas-incubator?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BORDERLESS",
+      "internalCards": [
+        {
+          "priceSell": 699.0,
+          "availEshopQty": 4,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Urza's Mine",
+      "cardEditionName": "8th Edition",
+      "scryfallUri": "https://scryfall.com/card/8ed/328%E2%98%85/urzas-mine?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "priceSell": 175.0,
+          "availEshopQty": 1,
+          "foil": "FOIL",
+          "condition": "PL"
+        }
+      ]
+    },
+    {
+      "name": "Urza's Avenger",
+      "cardEditionName": "5th Edition",
+      "scryfallUri": "https://scryfall.com/card/5ed/405/urzas-avenger?utm_source=api",
+      "foil": false,
+      "etched": false,
+      "borderColor": "WHITE",
+      "internalCards": [
+        {
+          "priceSell": 19.0,
+          "availEshopQty": 4,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 61,
+    "sortBy": "p_asc",
+    "descending": false
+  }
+}

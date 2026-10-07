@@ -1,0 +1,75 @@
+{
+  "list": [
+    {
+      "name": "Coat of Arms",
+      "cardEditionName": "Commander LCI Extras",
+      "scryfallUri": "https://scryfall.com/card/lcc/108/coat-of-arms?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BORDERLESS",
+      "internalCards": [
+        {
+          "priceSell": 449.0,
+          "availEshopQty": 2,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Coat of Arms (1712)",
+      "cardEditionName": "P - Secret Lair",
+      "scryfallUri": "https://scryfall.com/card/sld/1712/coat-of-arms?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BORDERLESS",
+      "internalCards": [
+        {
+          "priceSell": 449.0,
+          "availEshopQty": 1,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Strength of Arms",
+      "cardEditionName": "Double Masters",
+      "scryfallUri": "https://scryfall.com/card/2xm/33/strength-of-arms?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "priceSell": 7.0,
+          "availEshopQty": 8,
+          "foil": "REGULAR",
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Strength of Arms",
+      "cardEditionName": "Double Masters",
+      "scryfallUri": "https://scryfall.com/card/2xm/33/strength-of-arms?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "priceSell": 7.0,
+          "availEshopQty": 4,
+          "foil": "FOIL",
+          "condition": "NM"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 12,
+    "sortBy": "p_asc",
+    "descending": false
+  }
+}

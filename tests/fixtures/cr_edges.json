@@ -1,0 +1,56 @@
+{
+  "list": [
+    {
+      "name": "No Scryfall Card",
+      "cardEditionName": "Mystery",
+      "scryfallUri": null,
+      "foil": false,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "priceSell": 15.6,
+          "availEshopQty": 2,
+          "foil": "REGULAR"
+        },
+        {
+          "priceSell": 0,
+          "availEshopQty": 9,
+          "foil": "REGULAR"
+        },
+        {
+          "priceSell": -1,
+          "availEshopQty": 1,
+          "foil": "FOIL"
+        }
+      ]
+    },
+    {
+      "name": "Mixed Finish",
+      "cardEditionName": "Test",
+      "scryfallUri": "https://scryfall.com/card/exo/123/coat-of-arms?utm_source=api",
+      "foil": false,
+      "etched": true,
+      "borderColor": "BORDERLESS",
+      "internalCards": [
+        {
+          "priceSell": 20.0,
+          "availEshopQty": 0,
+          "foil": "FOIL"
+        },
+        {
+          "priceSell": 18.0,
+          "availEshopQty": 4,
+          "foil": ""
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 2,
+    "sortBy": "p_asc",
+    "descending": false
+  }
+}

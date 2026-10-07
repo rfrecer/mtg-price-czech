@@ -1,0 +1,10 @@
+{
+  "list": [],
+  "pagination": {
+    "sortBy": "p_asc",
+    "descending": false,
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 0
+  }
+}

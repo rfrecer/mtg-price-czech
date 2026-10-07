@@ -1,0 +1,7 @@
+Najada Wizardshop catalog endpoint discovery
+-------------------------------------------
+
+The Najada connector uses the Wizardshop JSON catalog API endpoint whose
+existence was documented in Robin Vyslouzil's czech-mtg-price-comparator
+project (https://github.com/xvyslo05/czech-mtg-price-comparator), licensed
+under the MIT License.

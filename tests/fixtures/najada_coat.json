@@ -1,0 +1,88 @@
+{
+  "count": 13,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "name": "Coat of Arms",
+      "localized_name": "Coat of Arms",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Secret Lair Commander Deck: Everyone's Invited!",
+        "name": null,
+        "short_code": "SLD"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 375.0,
+          "regular_price_czk": 375.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": true
+          },
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Coat of Arms",
+      "localized_name": "Coat of Arms",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Secret Lair Drop Series: Summer Superdrop 2024",
+        "name": null,
+        "short_code": "SLD"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 449.0,
+          "regular_price_czk": 449.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": false
+          },
+          "condition": "NM"
+        },
+        {
+          "effective_price_czk": 499.0,
+          "regular_price_czk": 499.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": true
+          },
+          "condition": "NM"
+        }
+      ]
+    },
+    {
+      "name": "Coat of Arms (Box Topper)",
+      "localized_name": "Coat of Arms (Box Topper)",
+      "name_cz": "",
+      "expansion": {
+        "localized_name": "Commander: The Lost Caverns of Ixalan: Extras",
+        "name": null,
+        "short_code": "LCC"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 475.0,
+          "regular_price_czk": 475.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": false
+          },
+          "condition": "NM"
+        },
+        {
+          "effective_price_czk": 699.0,
+          "regular_price_czk": 699.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": true
+          },
+          "condition": "NM"
+        }
+      ]
+    }
+  ]
+}

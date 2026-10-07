@@ -1,0 +1,26 @@
+{
+  "list": [
+    {
+      "name": "Page Card A",
+      "cardEditionName": "Set",
+      "scryfallUri": "https://scryfall.com/card/lea/1/page-card-a",
+      "foil": false,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "priceSell": 10,
+          "availEshopQty": 1,
+          "foil": "REGULAR"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 150,
+    "sortBy": "p_asc",
+    "descending": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "name": "Edge Case",
+      "localized_name": "Czech Name",
+      "name_cz": "Czech Name",
+      "expansion": {
+        "localized_name": "Test Set",
+        "short_code": "TST"
+      },
+      "articles": [
+        {
+          "effective_price_czk": null,
+          "regular_price_czk": 42.4,
+          "total_availability": 3,
+          "additional_properties": {
+            "is_foil": false
+          }
+        },
+        {
+          "effective_price_czk": null,
+          "regular_price_czk": null,
+          "total_availability": 1,
+          "additional_properties": {
+            "is_foil": true
+          }
+        },
+        {
+          "effective_price_czk": 10.0,
+          "regular_price_czk": 10.0,
+          "total_availability": 0,
+          "additional_properties": {
+            "is_foil": true
+          }
+        },
+        {
+          "effective_price_czk": 0,
+          "regular_price_czk": 0,
+          "total_availability": 5,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Upper Code",
+      "expansion": {
+        "localized_name": "Foo",
+        "short_code": "ABC"
+      },
+      "articles": [
+        {
+          "effective_price_czk": 5.0,
+          "regular_price_czk": 5.0,
+          "total_availability": 2,
+          "additional_properties": {
+            "is_foil": false
+          }
+        }
+      ]
+    }
+  ]
+}
