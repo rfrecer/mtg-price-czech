@@ -1,0 +1,88 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 10,
+      "is_foil": false,
+      "available_for_buylist": 90,
+      "featured": false,
+      "prices": {
+        "CZK": {
+          "en": {
+            "NM": 89,
+            "EX": 80,
+            "GD": 71,
+            "PL": 58,
+            "HP": 44
+          }
+        }
+      },
+      "product": {
+        "name": "Lightning Bolt",
+        "localized_name": "Lightning Bolt",
+        "name_cz": "",
+        "expansion": {
+          "localized_name": "Avatar: The Last Airbender: Eternal",
+          "name": null,
+          "short_code": "TLE"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "is_foil": true,
+      "available_for_buylist": 50,
+      "featured": false,
+      "prices": {
+        "CZK": {
+          "en": {
+            "NM": 179,
+            "EX": 152,
+            "GD": 125,
+            "PL": 90,
+            "HP": 54
+          }
+        }
+      },
+      "product": {
+        "name": "Lightning Bolt",
+        "localized_name": "Lightning Bolt",
+        "name_cz": "",
+        "expansion": {
+          "localized_name": "Avatar: The Last Airbender: Eternal",
+          "name": null,
+          "short_code": "TLE"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "is_foil": false,
+      "available_for_buylist": 0,
+      "featured": false,
+      "prices": {
+        "CZK": {
+          "en": {
+            "NM": 12,
+            "EX": 10,
+            "GD": 8,
+            "PL": 6,
+            "HP": 4
+          }
+        }
+      },
+      "product": {
+        "name": "Lightning Bolt",
+        "localized_name": "Lightning Bolt",
+        "name_cz": "",
+        "expansion": {
+          "localized_name": "Not Wanted Set",
+          "name": null,
+          "short_code": "NWS"
+        }
+      }
+    }
+  ]
+}

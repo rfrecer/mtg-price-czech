@@ -1,0 +1,123 @@
+{
+  "list": [
+    {
+      "name": "Coat of Arms",
+      "cardEditionName": "10th Edition",
+      "scryfallUri": "https://scryfall.com/card/10e/316/coat-of-arms?utm_source=api",
+      "foil": false,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "foil": "REGULAR",
+          "condition": "NM",
+          "language": "EN",
+          "priceBuy": 210.0,
+          "wantQty": 8,
+          "priceSell": 349.0,
+          "availEshopQty": 0
+        },
+        {
+          "foil": "REGULAR",
+          "condition": "NM",
+          "language": "JA",
+          "priceBuy": 150.0,
+          "wantQty": 0,
+          "priceSell": 249.0,
+          "availEshopQty": 0
+        },
+        {
+          "foil": "REGULAR",
+          "condition": "LP",
+          "language": "EN",
+          "priceBuy": 180.0,
+          "wantQty": 0,
+          "priceSell": 299.0,
+          "availEshopQty": 0
+        },
+        {
+          "foil": "REGULAR",
+          "condition": "PL",
+          "language": "EN",
+          "priceBuy": 135.0,
+          "wantQty": 0,
+          "priceSell": 225.0,
+          "availEshopQty": 0
+        }
+      ]
+    },
+    {
+      "name": "Coat of Arms",
+      "cardEditionName": "7th Edition",
+      "scryfallUri": "https://scryfall.com/card/7ed/291/coat-of-arms?utm_source=api",
+      "foil": true,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "foil": "FOIL",
+          "condition": "NM",
+          "language": "EN",
+          "priceBuy": 3250.0,
+          "wantQty": 4,
+          "priceSell": 6499.0,
+          "availEshopQty": 0
+        }
+      ]
+    },
+    {
+      "name": "Coat of Arms",
+      "cardEditionName": "Not Wanted",
+      "scryfallUri": "https://scryfall.com/card/xxx/1/coat-of-arms?utm_source=api",
+      "foil": false,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "foil": "REGULAR",
+          "condition": "NM",
+          "language": "EN",
+          "priceBuy": 50.0,
+          "wantQty": 0,
+          "priceSell": 99.0,
+          "availEshopQty": 0
+        },
+        {
+          "foil": "REGULAR",
+          "condition": "LP",
+          "language": "EN",
+          "priceBuy": 40.0,
+          "wantQty": 0,
+          "priceSell": 79.0,
+          "availEshopQty": 0
+        }
+      ]
+    },
+    {
+      "name": "Strength of Arms",
+      "cardEditionName": "Double Masters",
+      "scryfallUri": "https://scryfall.com/card/2xm/33/strength-of-arms?utm_source=api",
+      "foil": false,
+      "etched": false,
+      "borderColor": "BLACK",
+      "internalCards": [
+        {
+          "foil": "REGULAR",
+          "condition": "NM",
+          "language": "EN",
+          "priceBuy": 1.0,
+          "wantQty": 0,
+          "priceSell": 7.0,
+          "availEshopQty": 8
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "rowsPerPage": 100,
+    "rowsNumber": 4,
+    "sortBy": "p_asc",
+    "descending": false
+  }
+}

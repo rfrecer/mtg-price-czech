@@ -30,12 +30,15 @@ from mtg_price_czech.http import (
     request_json,
     require_mapping,
 )
-from mtg_price_czech.models import Offer
+from mtg_price_czech.models import BuylistOffer, Offer
 
 SHOP = "najada"
 BASE_URL = "https://wizardshop.cz/api/v1/najada2/catalog/mtg-singles/"
+BUYLIST_URL = "https://wizardshop.cz/api/v1/najada2/buylist-offers/"
+MTG_GAME_ID = "40e972fe-c136-4d66-b61a-89f6be0f93d5"
 MAX_PAGES = 20
 PAGE_LIMIT = 100
+BUYLIST_PRICE_MAX = 10_000_000
 
 _EXTRA_HEADERS = {
     "Origin": "https://najada.games",
@@ -209,3 +212,141 @@ def _offer_from_article(
         price_czk=round(price),
         stock_qty=stock,
     )
+
+
+async def buylist_najada(
+    name: str,
+    *,
+    buying_only: bool = True,
+    client: httpx.AsyncClient | None = None,
+    retry: RetryPolicy = DEFAULT_RETRY,
+) -> list[BuylistOffer]:
+    """Search Najada buylist for printings whose name contains ``name``."""
+    owns_client = client is None
+    if client is None:
+        client = default_client()
+
+    try:
+        offers: list[BuylistOffer] = []
+        url: str | None = BUYLIST_URL
+        params: dict[str, Any] | None = {
+            "game_id": MTG_GAME_ID,
+            "enabled": "true",
+            "q": name,
+            "buy_price_min": 0,
+            "buy_price_max": BUYLIST_PRICE_MAX,
+            "o": "name",
+            "limit": PAGE_LIMIT,
+            "offset": 0,
+        }
+        pages = 0
+        total_count: int | None = None
+        results_seen = 0
+
+        while url is not None:
+            pages += 1
+            if pages > MAX_PAGES:
+                raise ShopParseError(
+                    SHOP,
+                    f"exceeded {MAX_PAGES}-page pagination cap while buylist-searching {name!r}",
+                )
+
+            payload = await request_json(
+                SHOP,
+                client,
+                "GET",
+                url,
+                retry=retry,
+                params=params,
+                headers=_EXTRA_HEADERS,
+            )
+            params = None
+
+            data = require_mapping(SHOP, payload, "response")
+            if "results" not in data:
+                raise ShopParseError(SHOP, "missing results array (API changed?)")
+            results = data["results"]
+            if not isinstance(results, list):
+                raise ShopParseError(SHOP, "results is not a list (API changed?)")
+
+            if total_count is None and data.get("count") is not None:
+                try:
+                    total_count = int(data["count"])
+                except (TypeError, ValueError) as exc:
+                    raise ShopParseError(
+                        SHOP, f"unparsable count: {data['count']!r}"
+                    ) from exc
+
+            results_seen += len(results)
+            for row in results:
+                offers.extend(_buylist_from_offer(row, buying_only=buying_only))
+
+            next_url = data.get("next")
+            if next_url:
+                if not isinstance(next_url, str):
+                    raise ShopParseError(SHOP, f"next is not a URL string: {next_url!r}")
+                url = next_url
+                continue
+
+            if total_count is not None and results_seen < total_count:
+                raise ShopParseError(
+                    SHOP,
+                    f"count ({total_count}) exceeds accumulated results ({results_seen}) "
+                    "without a next link (API changed?)",
+                )
+            url = None
+
+        return offers
+    finally:
+        if owns_client:
+            await client.aclose()
+
+
+def _buylist_from_offer(row: Any, *, buying_only: bool) -> list[BuylistOffer]:
+    data = require_mapping(SHOP, row, "buylist offer")
+    product = require_mapping(SHOP, data.get("product"), "buylist product")
+    card_name = _card_name(product)
+    edition, set_code = _edition_fields(product.get("expansion"))
+    foil = bool(data.get("is_foil"))
+
+    want_raw = data.get("available_for_buylist", 0)
+    want_qty = int(parse_number(SHOP, want_raw, "available_for_buylist", card_name))
+    if buying_only and want_qty <= 0:
+        return []
+
+    prices = data.get("prices")
+    if prices is None:
+        return []
+    prices_map = require_mapping(SHOP, prices, f"prices of {card_name!r}")
+    czk = prices_map.get("CZK")
+    if czk is None:
+        return []
+    czk_map = require_mapping(SHOP, czk, f"prices.CZK of {card_name!r}")
+    en = czk_map.get("en")
+    if en is None:
+        return []
+    en_map = require_mapping(SHOP, en, f"prices.CZK.en of {card_name!r}")
+
+    offers: list[BuylistOffer] = []
+    for condition, price_raw in en_map.items():
+        if not isinstance(condition, str) or not condition.strip():
+            raise ShopParseError(
+                SHOP, f"unparsable condition key for {card_name!r}: {condition!r}"
+            )
+        price = parse_number(SHOP, price_raw, f"price[{condition}]", card_name)
+        if price <= 0:
+            continue
+        offers.append(
+            BuylistOffer(
+                shop=SHOP,
+                card_name=card_name,
+                edition=edition,
+                set_code=set_code,
+                foil=foil,
+                condition=condition.upper(),
+                price_czk=round(price),
+                want_qty=want_qty,
+                language="EN",
+            )
+        )
+    return offers

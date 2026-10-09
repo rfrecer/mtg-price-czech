@@ -1,0 +1,43 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "is_foil": false,
+      "available_for_buylist": 99,
+      "featured": true,
+      "prices": {
+        "CZK": {
+          "en": {
+            "NM": 699,
+            "EX": 629,
+            "GD": 559,
+            "PL": 454,
+            "HP": 350
+          }
+        },
+        "EUR": {
+          "en": {
+            "NM": 28.65,
+            "EX": 25.78,
+            "GD": 22.92,
+            "PL": 18.62,
+            "HP": 14.32
+          }
+        }
+      },
+      "product": {
+        "name": "Abeyance",
+        "localized_name": "Abeyance",
+        "name_cz": "",
+        "expansion": {
+          "localized_name": "Weatherlight",
+          "name": null,
+          "short_code": "WTH"
+        }
+      }
+    }
+  ]
+}

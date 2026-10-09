@@ -1,0 +1,30 @@
+{
+  "count": 2,
+  "next": null,
+  "previous": "https://wizardshop.cz/api/v1/najada2/buylist-offers/?game_id=40e972fe-c136-4d66-b61a-89f6be0f93d5&enabled=true&q=Bolt&limit=100&offset=0",
+  "results": [
+    {
+      "id": 2,
+      "is_foil": false,
+      "available_for_buylist": 5,
+      "featured": false,
+      "prices": {
+        "CZK": {
+          "en": {
+            "NM": 30
+          }
+        }
+      },
+      "product": {
+        "name": "Bolt Page2",
+        "localized_name": "Bolt Page2",
+        "name_cz": "",
+        "expansion": {
+          "localized_name": "Set B",
+          "name": null,
+          "short_code": "sbb"
+        }
+      }
+    }
+  ]
+}
