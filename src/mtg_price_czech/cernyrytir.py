@@ -174,7 +174,8 @@ def _offers_from_card(card: Any, *, in_stock_only: bool) -> list[Offer]:
         edition = None
 
     set_code = _set_code_from_scryfall(data.get("scryfallUri"))
-    card_foil = bool(data.get("foil"))
+    # Card-level "foil" means foil is available for the printing, not that this
+    # copy is foil. Finish comes from internalCards[].foil only.
     etched = bool(data.get("etched"))
     border = data.get("borderColor")
     borderless = isinstance(border, str) and border.upper() == "BORDERLESS"
@@ -194,7 +195,6 @@ def _offers_from_card(card: Any, *, in_stock_only: bool) -> list[Offer]:
             card_name=card_name,
             edition=edition,
             set_code=set_code,
-            card_foil=card_foil,
             etched=etched,
             borderless=borderless,
             in_stock_only=in_stock_only,
@@ -227,7 +227,6 @@ def _offer_from_internal(
     card_name: str,
     edition: str | None,
     set_code: str | None,
-    card_foil: bool,
     etched: bool,
     borderless: bool,
     in_stock_only: bool,
@@ -246,7 +245,7 @@ def _offer_from_internal(
         finish = ""
     if not isinstance(finish, str):
         raise ShopParseError(SHOP, f"unparsable foil finish for {card_name!r}: {finish!r}")
-    foil = card_foil or finish.upper() not in {"REGULAR", ""}
+    foil = finish.upper() not in {"REGULAR", ""}
 
     return Offer(
         shop=SHOP,
@@ -344,7 +343,8 @@ def _buylist_from_card(card: Any, *, buying_only: bool) -> list[BuylistOffer]:
         edition = None
 
     set_code = _set_code_from_scryfall(data.get("scryfallUri"))
-    card_foil = bool(data.get("foil"))
+    # Card-level "foil" means foil is available for the printing, not that this
+    # copy is foil. Finish comes from internalCards[].foil only.
     etched = bool(data.get("etched"))
     border = data.get("borderColor")
     borderless = isinstance(border, str) and border.upper() == "BORDERLESS"
@@ -376,7 +376,7 @@ def _buylist_from_card(card: Any, *, buying_only: bool) -> list[BuylistOffer]:
             raise ShopParseError(
                 SHOP, f"unparsable foil finish for {card_name!r}: {finish!r}"
             )
-        foil = card_foil or finish.upper() not in {"REGULAR", ""}
+        foil = finish.upper() not in {"REGULAR", ""}
 
         language = entry.get("language")
         if language is not None and not isinstance(language, str):

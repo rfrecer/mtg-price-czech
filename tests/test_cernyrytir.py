@@ -49,10 +49,14 @@ async def test_foil_from_card_flag_and_internal_finish() -> None:
     respx.post(API_URL).mock(return_value=httpx.Response(200, json=_load("cr_urza.json")))
     offers = await search_cernyrytir("Urza")
     rage = next(o for o in offers if o.card_name == "Urza's Rage")
-    # card.foil True even though internal finish is REGULAR
-    assert rage.foil is True
+    # card.foil True means foil available; internal REGULAR → not foil
+    assert rage.foil is False
+    incubator = next(o for o in offers if o.card_name == "Urza's Incubator")
+    assert incubator.foil is False
     mine = next(o for o in offers if o.card_name == "Urza's Mine")
     assert mine.foil is True  # internal FOIL
+    avenger = next(o for o in offers if o.card_name == "Urza's Avenger")
+    assert avenger.foil is False
 
 
 @pytest.mark.asyncio
