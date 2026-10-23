@@ -34,6 +34,42 @@ async def test_parse_real_fixture() -> None:
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_condition_parsed_and_uppercased() -> None:
+    respx.get(BASE_URL).mock(return_value=httpx.Response(200, json=_load("najada_bolt.json")))
+    offers = await search_najada("Lightning Bolt", in_stock_only=False)
+    assert offers
+    assert all(o.condition == "NM" for o in offers)
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_missing_condition_raises() -> None:
+    payload = {
+        "count": 1,
+        "next": None,
+        "previous": None,
+        "results": [
+            {
+                "name": "No Cond",
+                "expansion": {"localized_name": "S", "short_code": "s"},
+                "articles": [
+                    {
+                        "effective_price_czk": 10,
+                        "regular_price_czk": 10,
+                        "total_availability": 1,
+                        "additional_properties": {"is_foil": False},
+                    }
+                ],
+            }
+        ],
+    }
+    respx.get(BASE_URL).mock(return_value=httpx.Response(200, json=payload))
+    with pytest.raises(ShopParseError, match="missing condition"):
+        await search_najada("No")
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_foil_flag() -> None:
     respx.get(BASE_URL).mock(return_value=httpx.Response(200, json=_load("najada_bolt.json")))
     offers = await search_najada("Lightning Bolt", in_stock_only=False)
@@ -128,6 +164,7 @@ async def test_pagination_cap_raises() -> None:
                         "regular_price_czk": 1,
                         "total_availability": 1,
                         "additional_properties": {"is_foil": False},
+                        "condition": "NM",
                     }
                 ],
             }
@@ -157,6 +194,7 @@ async def test_count_without_next_raises() -> None:
                         "regular_price_czk": 1,
                         "total_availability": 1,
                         "additional_properties": {"is_foil": False},
+                        "condition": "NM",
                     }
                 ],
             }
@@ -192,6 +230,7 @@ async def test_non_numeric_price_raises() -> None:
                         "regular_price_czk": 1,
                         "total_availability": 1,
                         "additional_properties": {"is_foil": False},
+                        "condition": "NM",
                     }
                 ],
             }
@@ -232,6 +271,7 @@ async def test_prefers_english_name_field() -> None:
                         "regular_price_czk": 10,
                         "total_availability": 1,
                         "additional_properties": {"is_foil": False},
+                        "condition": "NM",
                     }
                 ],
             }

@@ -45,6 +45,46 @@ async def test_set_code_from_scryfall_present_and_absent() -> None:
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_condition_parsed_and_uppercased() -> None:
+    respx.post(API_URL).mock(return_value=httpx.Response(200, json=_load("cr_urza.json")))
+    offers = await search_cernyrytir("Urza")
+    by_name = {o.card_name: o for o in offers}
+    assert by_name["Urza's Rage"].condition == "NM"
+    assert by_name["Urza's Mine"].condition == "PL"
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_missing_condition_raises() -> None:
+    payload = {
+        "list": [
+            {
+                "name": "No Cond",
+                "cardEditionName": "S",
+                "scryfallUri": "https://scryfall.com/card/lea/1/no-cond",
+                "foil": False,
+                "etched": False,
+                "borderColor": "BLACK",
+                "internalCards": [
+                    {"priceSell": 10, "availEshopQty": 1, "foil": "REGULAR"}
+                ],
+            }
+        ],
+        "pagination": {
+            "page": 1,
+            "rowsPerPage": 100,
+            "rowsNumber": 1,
+            "sortBy": "p_asc",
+            "descending": False,
+        },
+    }
+    respx.post(API_URL).mock(return_value=httpx.Response(200, json=payload))
+    with pytest.raises(ShopParseError, match="missing condition"):
+        await search_cernyrytir("No")
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_foil_from_card_flag_and_internal_finish() -> None:
     respx.post(API_URL).mock(return_value=httpx.Response(200, json=_load("cr_urza.json")))
     offers = await search_cernyrytir("Urza")
@@ -166,7 +206,12 @@ async def test_20_page_cap_raises() -> None:
                         "etched": False,
                         "borderColor": "BLACK",
                         "internalCards": [
-                            {"priceSell": 1, "availEshopQty": 1, "foil": "REGULAR"}
+                            {
+                                "priceSell": 1,
+                                "availEshopQty": 1,
+                                "foil": "REGULAR",
+                                "condition": "NM",
+                            }
                         ],
                     }
                 ],
@@ -220,7 +265,12 @@ async def test_non_numeric_price_raises() -> None:
                 "etched": False,
                 "borderColor": "BLACK",
                 "internalCards": [
-                    {"priceSell": "nope", "availEshopQty": 1, "foil": "REGULAR"}
+                    {
+                        "priceSell": "nope",
+                        "availEshopQty": 1,
+                        "foil": "REGULAR",
+                        "condition": "NM",
+                    }
                 ],
             }
         ],

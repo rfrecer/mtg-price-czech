@@ -247,12 +247,19 @@ def _offer_from_internal(
         raise ShopParseError(SHOP, f"unparsable foil finish for {card_name!r}: {finish!r}")
     foil = finish.upper() not in {"REGULAR", ""}
 
+    condition = data.get("condition")
+    if not isinstance(condition, str) or not condition.strip():
+        raise ShopParseError(
+            SHOP, f"missing condition for {card_name!r}: {condition!r}"
+        )
+
     return Offer(
         shop=SHOP,
         card_name=card_name,
         edition=edition,
         set_code=set_code,
         foil=foil,
+        condition=condition.upper(),
         price_czk=round(price),
         stock_qty=stock,
         etched=etched,

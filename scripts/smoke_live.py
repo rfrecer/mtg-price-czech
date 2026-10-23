@@ -31,11 +31,14 @@ async def main() -> int:
 
     print(f"najada: {len(najada)} offers")
     for o in najada[:5]:
-        print(f"  {o.card_name!r} {o.edition} {o.set_code} {o.price_czk} CZK x{o.stock_qty} foil={o.foil}")
+        print(
+            f"  {o.card_name!r} {o.edition} {o.set_code} {o.condition} "
+            f"{o.price_czk} CZK x{o.stock_qty} foil={o.foil}"
+        )
     print(f"cernyrytir: {len(cerny)} offers")
     for o in cerny[:5]:
         print(
-            f"  {o.card_name!r} {o.edition} {o.set_code} {o.price_czk} CZK "
+            f"  {o.card_name!r} {o.edition} {o.set_code} {o.condition} {o.price_czk} CZK "
             f"x{o.stock_qty} foil={o.foil} etched={o.etched} borderless={o.borderless}"
         )
     print(f"najada buylist: {len(najada_buy)} rows")

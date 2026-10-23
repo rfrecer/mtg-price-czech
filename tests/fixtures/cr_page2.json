@@ -11,7 +11,8 @@
         {
           "priceSell": 11,
           "availEshopQty": 2,
-          "foil": "REGULAR"
+          "foil": "REGULAR",
+          "condition": "NM"
         }
       ]
     }

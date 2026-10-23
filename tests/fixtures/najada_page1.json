@@ -16,7 +16,8 @@
           "total_availability": 1,
           "additional_properties": {
             "is_foil": false
-          }
+          },
+          "condition": "NM"
         }
       ]
     }

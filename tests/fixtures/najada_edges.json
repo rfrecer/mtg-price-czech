@@ -18,7 +18,8 @@
           "total_availability": 3,
           "additional_properties": {
             "is_foil": false
-          }
+          },
+          "condition": "NM"
         },
         {
           "effective_price_czk": null,
@@ -26,7 +27,8 @@
           "total_availability": 1,
           "additional_properties": {
             "is_foil": true
-          }
+          },
+          "condition": "NM"
         },
         {
           "effective_price_czk": 10.0,
@@ -34,7 +36,8 @@
           "total_availability": 0,
           "additional_properties": {
             "is_foil": true
-          }
+          },
+          "condition": "NM"
         },
         {
           "effective_price_czk": 0,
@@ -42,7 +45,8 @@
           "total_availability": 5,
           "additional_properties": {
             "is_foil": false
-          }
+          },
+          "condition": "NM"
         }
       ]
     },
@@ -59,7 +63,8 @@
           "total_availability": 2,
           "additional_properties": {
             "is_foil": false
-          }
+          },
+          "condition": "NM"
         }
       ]
     }

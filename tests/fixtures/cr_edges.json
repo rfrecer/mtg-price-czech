@@ -11,17 +11,20 @@
         {
           "priceSell": 15.6,
           "availEshopQty": 2,
-          "foil": "REGULAR"
+          "foil": "REGULAR",
+          "condition": "NM"
         },
         {
           "priceSell": 0,
           "availEshopQty": 9,
-          "foil": "REGULAR"
+          "foil": "REGULAR",
+          "condition": "NM"
         },
         {
           "priceSell": -1,
           "availEshopQty": 1,
-          "foil": "FOIL"
+          "foil": "FOIL",
+          "condition": "NM"
         }
       ]
     },
@@ -36,12 +39,14 @@
         {
           "priceSell": 20.0,
           "availEshopQty": 0,
-          "foil": "FOIL"
+          "foil": "FOIL",
+          "condition": "NM"
         },
         {
           "priceSell": 18.0,
           "availEshopQty": 4,
-          "foil": ""
+          "foil": "",
+          "condition": "NM"
         }
       ]
     }
