@@ -15,6 +15,7 @@ class Offer:
     set_code: str | None
     foil: bool
     condition: str
+    language: str
     price_czk: int
     stock_qty: int
     etched: bool = False

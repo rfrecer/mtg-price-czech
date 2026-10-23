@@ -20,7 +20,8 @@
           "additional_properties": {
             "is_foil": false
           },
-          "condition": "NM"
+          "condition": "NM",
+          "language_code": "EN"
         }
       ]
     },
@@ -41,7 +42,8 @@
           "additional_properties": {
             "is_foil": false
           },
-          "condition": "NM"
+          "condition": "NM",
+          "language_code": "EN"
         },
         {
           "effective_price_czk": 59.0,
@@ -50,7 +52,8 @@
           "additional_properties": {
             "is_foil": true
           },
-          "condition": "NM"
+          "condition": "NM",
+          "language_code": "EN"
         }
       ]
     },
@@ -71,7 +74,8 @@
           "additional_properties": {
             "is_foil": false
           },
-          "condition": "NM"
+          "condition": "NM",
+          "language_code": "EN"
         }
       ]
     }

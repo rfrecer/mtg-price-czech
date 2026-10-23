@@ -43,6 +43,7 @@ async def main() -> None:
             offer.edition,
             offer.set_code,
             offer.condition,
+            offer.language,
             offer.price_czk,
             offer.stock_qty,
             "foil" if offer.foil else "nonfoil",
@@ -83,6 +84,7 @@ Buylist connectors (`buylist_*`) share `client` / `retry` and add:
 | `set_code` | Lowercase set code if given |
 | `foil` / `etched` / `borderless` | Finish flags |
 | `condition` | Shop-native grade: Najada `NM`/`EX`/`GD`/`PL`/`HP`; CR `NM`/`LP`/`PL` |
+| `language` | Language code (`EN`, `JA`, …); from Najada `language_code` / CR `language` |
 | `price_czk` | Whole CZK (`round` of the shop float) |
 | `stock_qty` | Units available |
 
@@ -131,9 +133,9 @@ The library does not sleep between successful calls. Callers that batch many nam
 
 Undocumented shop APIs; they may change, which is why parsing is strict and raises `ShopParseError`:
 
-- Najada sell (Wizardshop catalog): `GET https://wizardshop.cz/api/v1/najada2/catalog/mtg-singles/?q=...&limit=100` with `Origin` / `Referer` for `najada.games`. Pagination is Django REST style (`count` / `next` with `offset`). English card names live in the `name` field; `condition` is on each article.
+- Najada sell (Wizardshop catalog): `GET https://wizardshop.cz/api/v1/najada2/catalog/mtg-singles/?q=...&limit=100` with `Origin` / `Referer` for `najada.games`. Pagination is Django REST style (`count` / `next` with `offset`). English card names live in the `name` field; `condition` and `language_code` are on each article.
 - Najada buylist: `GET https://wizardshop.cz/api/v1/najada2/buylist-offers/?game_id=<mtg>&enabled=true&q=...&buy_price_min=0&buy_price_max=10000000&o=name&limit=100`. Condition prices come from `prices.CZK.en`.
-- Černý Rytíř sell: `POST https://eshop-api.cernyrytir.eu/api/public/card/list?eshop_mode=STANDARD` with a full JSON filter body. Pagination uses `pagination.page` and `pagination.rowsNumber` (100 rows per page). Sell `condition` is on each `internalCards` entry.
+- Černý Rytíř sell: `POST https://eshop-api.cernyrytir.eu/api/public/card/list?eshop_mode=STANDARD` with a full JSON filter body. Pagination uses `pagination.page` and `pagination.rowsNumber` (100 rows per page). Sell `condition` and `language` are on each `internalCards` entry.
 - Černý Rytíř buylist: same endpoint with `eshop_mode=BUYOUT`; buy fields are `priceBuy`, `wantQty`, and `condition` on each `internalCards` entry.
 
 Every request sends a descriptive User-Agent:

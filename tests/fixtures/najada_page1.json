@@ -17,7 +17,8 @@
           "additional_properties": {
             "is_foil": false
           },
-          "condition": "NM"
+          "condition": "NM",
+          "language_code": "EN"
         }
       ]
     }

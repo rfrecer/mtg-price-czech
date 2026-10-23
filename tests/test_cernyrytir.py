@@ -55,6 +55,15 @@ async def test_condition_parsed_and_uppercased() -> None:
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_language_parsed_and_uppercased() -> None:
+    respx.post(API_URL).mock(return_value=httpx.Response(200, json=_load("cr_urza.json")))
+    offers = await search_cernyrytir("Urza")
+    assert offers
+    assert all(o.language == "EN" for o in offers)
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_missing_condition_raises() -> None:
     payload = {
         "list": [
@@ -66,7 +75,12 @@ async def test_missing_condition_raises() -> None:
                 "etched": False,
                 "borderColor": "BLACK",
                 "internalCards": [
-                    {"priceSell": 10, "availEshopQty": 1, "foil": "REGULAR"}
+                    {
+                        "priceSell": 10,
+                        "availEshopQty": 1,
+                        "foil": "REGULAR",
+                        "language": "EN",
+                    }
                 ],
             }
         ],
@@ -80,6 +94,41 @@ async def test_missing_condition_raises() -> None:
     }
     respx.post(API_URL).mock(return_value=httpx.Response(200, json=payload))
     with pytest.raises(ShopParseError, match="missing condition"):
+        await search_cernyrytir("No")
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_missing_language_raises() -> None:
+    payload = {
+        "list": [
+            {
+                "name": "No Lang",
+                "cardEditionName": "S",
+                "scryfallUri": "https://scryfall.com/card/lea/1/no-lang",
+                "foil": False,
+                "etched": False,
+                "borderColor": "BLACK",
+                "internalCards": [
+                    {
+                        "priceSell": 10,
+                        "availEshopQty": 1,
+                        "foil": "REGULAR",
+                        "condition": "NM",
+                    }
+                ],
+            }
+        ],
+        "pagination": {
+            "page": 1,
+            "rowsPerPage": 100,
+            "rowsNumber": 1,
+            "sortBy": "p_asc",
+            "descending": False,
+        },
+    }
+    respx.post(API_URL).mock(return_value=httpx.Response(200, json=payload))
+    with pytest.raises(ShopParseError, match="missing language"):
         await search_cernyrytir("No")
 
 
@@ -211,6 +260,7 @@ async def test_20_page_cap_raises() -> None:
                                 "availEshopQty": 1,
                                 "foil": "REGULAR",
                                 "condition": "NM",
+                                "language": "EN",
                             }
                         ],
                     }
@@ -270,6 +320,7 @@ async def test_non_numeric_price_raises() -> None:
                         "availEshopQty": 1,
                         "foil": "REGULAR",
                         "condition": "NM",
+                        "language": "EN",
                     }
                 ],
             }

@@ -12,7 +12,8 @@
           "priceSell": 7.0,
           "availEshopQty": 4,
           "foil": "REGULAR",
-          "condition": "NM"
+          "condition": "NM",
+          "language": "EN"
         }
       ]
     },
@@ -28,7 +29,8 @@
           "priceSell": 699.0,
           "availEshopQty": 4,
           "foil": "REGULAR",
-          "condition": "NM"
+          "condition": "NM",
+          "language": "EN"
         }
       ]
     },
@@ -44,7 +46,8 @@
           "priceSell": 175.0,
           "availEshopQty": 1,
           "foil": "FOIL",
-          "condition": "PL"
+          "condition": "PL",
+          "language": "EN"
         }
       ]
     },
@@ -60,7 +63,8 @@
           "priceSell": 19.0,
           "availEshopQty": 4,
           "foil": "REGULAR",
-          "condition": "NM"
+          "condition": "NM",
+          "language": "EN"
         }
       ]
     }

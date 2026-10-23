@@ -209,6 +209,12 @@ def _offer_from_article(
             SHOP, f"missing condition for {card_name!r}: {condition!r}"
         )
 
+    language = data.get("language_code")
+    if not isinstance(language, str) or not language.strip():
+        raise ShopParseError(
+            SHOP, f"missing language_code for {card_name!r}: {language!r}"
+        )
+
     return Offer(
         shop=SHOP,
         card_name=card_name,
@@ -216,6 +222,7 @@ def _offer_from_article(
         set_code=set_code,
         foil=foil,
         condition=condition.upper(),
+        language=language.upper(),
         price_czk=round(price),
         stock_qty=stock,
     )

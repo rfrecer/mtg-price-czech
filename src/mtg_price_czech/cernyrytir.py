@@ -253,6 +253,12 @@ def _offer_from_internal(
             SHOP, f"missing condition for {card_name!r}: {condition!r}"
         )
 
+    language = data.get("language")
+    if not isinstance(language, str) or not language.strip():
+        raise ShopParseError(
+            SHOP, f"missing language for {card_name!r}: {language!r}"
+        )
+
     return Offer(
         shop=SHOP,
         card_name=card_name,
@@ -260,6 +266,7 @@ def _offer_from_internal(
         set_code=set_code,
         foil=foil,
         condition=condition.upper(),
+        language=language.upper(),
         price_czk=round(price),
         stock_qty=stock,
         etched=etched,

@@ -12,7 +12,8 @@
           "priceSell": 10,
           "availEshopQty": 1,
           "foil": "REGULAR",
-          "condition": "NM"
+          "condition": "NM",
+          "language": "EN"
         }
       ]
     }
